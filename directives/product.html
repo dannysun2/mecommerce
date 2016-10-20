@@ -1,0 +1,30 @@
+<md-card flex="30">
+  <img ng-src="{{ productObject.imgsrc }}" />
+  <md-card-content>
+    <div class="product-info" ng-show=!showContact>
+      <h2 class="md-title">{{ productObject.title }}</h2>
+      <h3>{{ productObject.price | currency }}</h3>
+      <p>{{ productObject.content }}</p>
+    </div>
+
+    <div class="product-contact" ng-show="showContact">
+      <p><md-icon class="mdi mdi-account"></md-icon>Contact</p>
+      <p><md-icon class="mdi mdi-phone"></md-icon>Phone</p>
+      <p><md-icon class="mdi mdi-email"></md-icon>Email</p>
+    </div>
+
+    <div class="product-admin" ng-if="showAdmin">
+      <h3>Admin Settings</h3>
+      <div layout="row">
+        <md-button class="md-primary">Edit</md-button>
+        <md-button class="md-primary">Delete</md-button>
+      </div>
+    </div>
+
+    <div layout="row">
+      <md-button ng-click="showContact = true">Contact</md-button>
+      <md-button ng-click="showContact = false">Details</md-button>
+    </div>
+
+  </md-card-content>
+</md-card>
